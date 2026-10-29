@@ -1,0 +1,1835 @@
+{
+  "address": "f5HoQ1phkhNxGkWZbkttQF334ZHpN2PRL7RaqSoesDX",
+  "metadata": {
+    "name": "traza",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "accept_transfer",
+      "discriminator": [
+        94,
+        249,
+        171,
+        62,
+        208,
+        120,
+        49,
+        110
+      ],
+      "accounts": [
+        {
+          "name": "trace_token",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  97,
+                  99,
+                  101,
+                  95,
+                  116,
+                  111,
+                  107,
+                  101,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pending_transfer",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  101,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  116,
+                  114,
+                  97,
+                  110,
+                  115,
+                  102,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "account",
+                "path": "pending_transfer.from",
+                "account": "PendingTransfer"
+              },
+              {
+                "kind": "account",
+                "path": "to"
+              }
+            ]
+          }
+        },
+        {
+          "name": "from_balance",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  98,
+                  97,
+                  108,
+                  97,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "account",
+                "path": "pending_transfer.from",
+                "account": "PendingTransfer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "to_balance",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  98,
+                  97,
+                  108,
+                  97,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "account",
+                "path": "to"
+              }
+            ]
+          }
+        },
+        {
+          "name": "role_registry",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  108,
+                  101,
+                  95,
+                  114,
+                  101,
+                  103,
+                  105,
+                  115,
+                  116,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "to"
+              }
+            ]
+          }
+        },
+        {
+          "name": "to",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "add_trace_event",
+      "discriminator": [
+        91,
+        3,
+        150,
+        170,
+        123,
+        166,
+        9,
+        82
+      ],
+      "accounts": [
+        {
+          "name": "trace_token",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  97,
+                  99,
+                  101,
+                  95,
+                  116,
+                  111,
+                  107,
+                  101,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              }
+            ]
+          }
+        },
+        {
+          "name": "recorder_balance",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  98,
+                  97,
+                  108,
+                  97,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "account",
+                "path": "recorder"
+              }
+            ]
+          }
+        },
+        {
+          "name": "trace_event",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  97,
+                  99,
+                  101,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "arg",
+                "path": "index"
+              }
+            ]
+          }
+        },
+        {
+          "name": "role_registry",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  108,
+                  101,
+                  95,
+                  114,
+                  101,
+                  103,
+                  105,
+                  115,
+                  116,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "recorder"
+              }
+            ]
+          }
+        },
+        {
+          "name": "recorder",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "event_type",
+          "type": {
+            "defined": {
+              "name": "EventType"
+            }
+          }
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "option": "i16"
+          }
+        },
+        {
+          "name": "humidity",
+          "type": {
+            "option": "u16"
+          }
+        },
+        {
+          "name": "index",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "create_token",
+      "discriminator": [
+        84,
+        52,
+        204,
+        228,
+        24,
+        140,
+        234,
+        75
+      ],
+      "accounts": [
+        {
+          "name": "trace_token",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  97,
+                  99,
+                  101,
+                  95,
+                  116,
+                  111,
+                  107,
+                  101,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_balance",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  98,
+                  97,
+                  108,
+                  97,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint",
+          "signer": true
+        },
+        {
+          "name": "role_registry",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  108,
+                  101,
+                  95,
+                  114,
+                  101,
+                  103,
+                  105,
+                  115,
+                  116,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "metadata",
+          "type": "string"
+        },
+        {
+          "name": "coffee_type",
+          "type": "string"
+        },
+        {
+          "name": "farm_name",
+          "type": "string"
+        },
+        {
+          "name": "harvest_date",
+          "type": "i64"
+        },
+        {
+          "name": "origin_country",
+          "type": "string"
+        },
+        {
+          "name": "altitude_meters",
+          "type": "u16"
+        },
+        {
+          "name": "temperature",
+          "type": {
+            "option": "i16"
+          }
+        },
+        {
+          "name": "humidity",
+          "type": {
+            "option": "u16"
+          }
+        },
+        {
+          "name": "latitude",
+          "type": "f64"
+        },
+        {
+          "name": "longitude",
+          "type": "f64"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "program_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initiate_transfer",
+      "discriminator": [
+        128,
+        229,
+        77,
+        5,
+        65,
+        234,
+        228,
+        75
+      ],
+      "accounts": [
+        {
+          "name": "trace_token",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  97,
+                  99,
+                  101,
+                  95,
+                  116,
+                  111,
+                  107,
+                  101,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              }
+            ]
+          }
+        },
+        {
+          "name": "from_balance",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  98,
+                  97,
+                  108,
+                  97,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "account",
+                "path": "from"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pending_transfer",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  101,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  116,
+                  114,
+                  97,
+                  110,
+                  115,
+                  102,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "account",
+                "path": "from"
+              },
+              {
+                "kind": "account",
+                "path": "to"
+              }
+            ]
+          }
+        },
+        {
+          "name": "from_role_registry",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  108,
+                  101,
+                  95,
+                  114,
+                  101,
+                  103,
+                  105,
+                  115,
+                  116,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "from"
+              }
+            ]
+          }
+        },
+        {
+          "name": "to"
+        },
+        {
+          "name": "to_role_registry",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  108,
+                  101,
+                  95,
+                  114,
+                  101,
+                  103,
+                  105,
+                  115,
+                  116,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "to"
+              }
+            ]
+          }
+        },
+        {
+          "name": "from",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "register_role",
+      "discriminator": [
+        120,
+        142,
+        192,
+        194,
+        84,
+        145,
+        95,
+        167
+      ],
+      "accounts": [
+        {
+          "name": "pending_role",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  101,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  114,
+                  111,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "role_registry"
+        },
+        {
+          "name": "wallet",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "requested_role",
+          "type": {
+            "defined": {
+              "name": "Role"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "request_certificate",
+      "discriminator": [
+        6,
+        1,
+        173,
+        120,
+        12,
+        222,
+        8,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "trace_token",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  114,
+                  97,
+                  99,
+                  101,
+                  95,
+                  116,
+                  111,
+                  107,
+                  101,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              }
+            ]
+          }
+        },
+        {
+          "name": "requester_balance",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  98,
+                  97,
+                  108,
+                  97,
+                  110,
+                  99,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "trace_token.mint",
+                "account": "TraceToken"
+              },
+              {
+                "kind": "account",
+                "path": "requester"
+              }
+            ]
+          }
+        },
+        {
+          "name": "certificate",
+          "writable": true
+        },
+        {
+          "name": "role_registry",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  108,
+                  101,
+                  95,
+                  114,
+                  101,
+                  103,
+                  105,
+                  115,
+                  116,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "requester"
+              }
+            ]
+          }
+        },
+        {
+          "name": "program_config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "requester",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "cert_type",
+          "type": {
+            "defined": {
+              "name": "CertType"
+            }
+          }
+        },
+        {
+          "name": "notes",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "resolve_certificate",
+      "discriminator": [
+        255,
+        154,
+        247,
+        21,
+        79,
+        115,
+        167,
+        38
+      ],
+      "accounts": [
+        {
+          "name": "certificate",
+          "writable": true
+        },
+        {
+          "name": "program_config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "_cert_type",
+          "type": {
+            "defined": {
+              "name": "CertType"
+            }
+          }
+        },
+        {
+          "name": "approved",
+          "type": "bool"
+        },
+        {
+          "name": "notes",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "validate_role",
+      "discriminator": [
+        255,
+        49,
+        156,
+        62,
+        44,
+        3,
+        111,
+        255
+      ],
+      "accounts": [
+        {
+          "name": "program_config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "pending_role",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  101,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  95,
+                  114,
+                  111,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pending_role.wallet",
+                "account": "PendingRoleRegistration"
+              }
+            ]
+          }
+        },
+        {
+          "name": "role_registry",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  108,
+                  101,
+                  95,
+                  114,
+                  101,
+                  103,
+                  105,
+                  115,
+                  116,
+                  114,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pending_role.wallet",
+                "account": "PendingRoleRegistration"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Certificate",
+      "discriminator": [
+        202,
+        229,
+        222,
+        220,
+        116,
+        20,
+        74,
+        67
+      ]
+    },
+    {
+      "name": "PendingRoleRegistration",
+      "discriminator": [
+        236,
+        117,
+        246,
+        164,
+        40,
+        59,
+        33,
+        52
+      ]
+    },
+    {
+      "name": "PendingTransfer",
+      "discriminator": [
+        136,
+        107,
+        78,
+        115,
+        95,
+        81,
+        142,
+        155
+      ]
+    },
+    {
+      "name": "ProgramConfig",
+      "discriminator": [
+        196,
+        210,
+        90,
+        231,
+        144,
+        149,
+        140,
+        63
+      ]
+    },
+    {
+      "name": "RoleRegistry",
+      "discriminator": [
+        173,
+        129,
+        34,
+        250,
+        223,
+        92,
+        0,
+        232
+      ]
+    },
+    {
+      "name": "TokenBalance",
+      "discriminator": [
+        93,
+        240,
+        34,
+        89,
+        188,
+        248,
+        120,
+        201
+      ]
+    },
+    {
+      "name": "TraceEvent",
+      "discriminator": [
+        51,
+        144,
+        87,
+        63,
+        144,
+        220,
+        30,
+        230
+      ]
+    },
+    {
+      "name": "TraceToken",
+      "discriminator": [
+        251,
+        80,
+        55,
+        49,
+        147,
+        24,
+        218,
+        201
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "UnauthorizedAuthority",
+      "msg": "Only the program authority can validate roles"
+    },
+    {
+      "code": 6001,
+      "name": "RoleAlreadyValidated",
+      "msg": "User already has a validated role"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidRoleRegistryAccount",
+      "msg": "Invalid role registry account"
+    },
+    {
+      "code": 6003,
+      "name": "PendingRoleAlreadyExists",
+      "msg": "User already has a pending role registration"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidCreatorRole",
+      "msg": "Invalid role: only Producer or Factory can create tokens"
+    },
+    {
+      "code": 6005,
+      "name": "FactoryRequiresSourceTokens",
+      "msg": "Factory must provide at least one source token from a Producer"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidSourceTokenCreator",
+      "msg": "Source token must be created by a Producer"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidAmount",
+      "msg": "Amount must be greater than zero"
+    },
+    {
+      "code": 6008,
+      "name": "TransferAmountExceedsTokenAmount",
+      "msg": "Transfer amount exceeds token amount"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidTransferPath",
+      "msg": "Invalid transfer: only Producer->Factory, Factory->Retailer, Retailer->Consumer allowed"
+    },
+    {
+      "code": 6010,
+      "name": "TokenAlreadyInTransfer",
+      "msg": "Token is already in transfer"
+    },
+    {
+      "code": 6011,
+      "name": "TokenNotInTransfer",
+      "msg": "Token is not in transfer status"
+    },
+    {
+      "code": 6012,
+      "name": "InsufficientBalance",
+      "msg": "Insufficient balance for transfer"
+    },
+    {
+      "code": 6013,
+      "name": "TransferToSelf",
+      "msg": "Cannot transfer to the same account"
+    },
+    {
+      "code": 6014,
+      "name": "MetadataTooLong",
+      "msg": "Metadata exceeds maximum length"
+    },
+    {
+      "code": 6015,
+      "name": "CertificateAlreadyExists",
+      "msg": "Certificate of this type already exists for this token"
+    },
+    {
+      "code": 6016,
+      "name": "CertificateNotPending",
+      "msg": "Certificate is not in Pending status"
+    },
+    {
+      "code": 6017,
+      "name": "DescriptionTooLong",
+      "msg": "Description exceeds maximum length of 200 characters"
+    },
+    {
+      "code": 6018,
+      "name": "UnauthorizedCertifier",
+      "msg": "Only the program authority can resolve certificates"
+    },
+    {
+      "code": 6019,
+      "name": "InvalidEventIndex",
+      "msg": "Event index must match the current event count of the token"
+    }
+  ],
+  "types": [
+    {
+      "name": "CertStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Pending"
+          },
+          {
+            "name": "Approved"
+          },
+          {
+            "name": "Rejected"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CertType",
+      "repr": {
+        "kind": "rust"
+      },
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Sanitary"
+          },
+          {
+            "name": "Quality"
+          },
+          {
+            "name": "Organic"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Certificate",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "cert_type",
+            "type": {
+              "defined": {
+                "name": "CertType"
+              }
+            }
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "CertStatus"
+              }
+            }
+          },
+          {
+            "name": "requester",
+            "type": "pubkey"
+          },
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "requested_at",
+            "type": "i64"
+          },
+          {
+            "name": "resolved_at",
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "notes",
+            "type": "string"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EventType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Harvest"
+          },
+          {
+            "name": "Processing"
+          },
+          {
+            "name": "Roasting"
+          },
+          {
+            "name": "Packaging"
+          },
+          {
+            "name": "QualityCheck"
+          },
+          {
+            "name": "Transport"
+          },
+          {
+            "name": "Storage"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PendingRoleRegistration",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "requested_role",
+            "type": {
+              "defined": {
+                "name": "Role"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PendingTransfer",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "from",
+            "type": "pubkey"
+          },
+          {
+            "name": "to",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "initiated_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProgramConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "initialized",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Role",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Producer"
+          },
+          {
+            "name": "Factory"
+          },
+          {
+            "name": "Retailer"
+          },
+          {
+            "name": "Consumer"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RoleRegistry",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "role",
+            "type": {
+              "defined": {
+                "name": "Role"
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "validated_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokenBalance",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "balance",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "last_updated",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokenStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Created"
+          },
+          {
+            "name": "InTransfer"
+          },
+          {
+            "name": "Accepted"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TraceEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "recorder",
+            "type": "pubkey"
+          },
+          {
+            "name": "event_type",
+            "type": {
+              "defined": {
+                "name": "EventType"
+              }
+            }
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "temperature",
+            "type": {
+              "option": "i16"
+            }
+          },
+          {
+            "name": "humidity",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "index",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TraceToken",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "creator_role",
+            "type": {
+              "defined": {
+                "name": "Role"
+              }
+            }
+          },
+          {
+            "name": "total_supply",
+            "type": "u64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "TokenStatus"
+              }
+            }
+          },
+          {
+            "name": "source_tokens",
+            "type": {
+              "vec": "pubkey"
+            }
+          },
+          {
+            "name": "metadata",
+            "type": "string"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "coffee_type",
+            "type": "string"
+          },
+          {
+            "name": "farm_name",
+            "type": "string"
+          },
+          {
+            "name": "harvest_date",
+            "type": "i64"
+          },
+          {
+            "name": "origin_country",
+            "type": "string"
+          },
+          {
+            "name": "altitude_meters",
+            "type": "u16"
+          },
+          {
+            "name": "temperature",
+            "type": {
+              "option": "i16"
+            }
+          },
+          {
+            "name": "humidity",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "event_count",
+            "type": "u32"
+          },
+          {
+            "name": "oracle_verified",
+            "type": "bool"
+          },
+          {
+            "name": "latitude",
+            "type": "f64"
+          },
+          {
+            "name": "longitude",
+            "type": "f64"
+          }
+        ]
+      }
+    }
+  ]
+}

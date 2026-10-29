@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+:root {
+  --ink:       #080604;
+  --ink-1:     #0F0C09;
+  --ink-2:     #171210;
+  --ink-3:     #1F1813;
+  --ink-4:     #2A221A;
+  --ink-5:     #362C21;
+  --divider:   rgba(192, 144, 56, 0.12);
+  --divider-strong: rgba(192, 144, 56, 0.35);
+  --gold:      #C09038;
+  --gold-bright: #D4A848;
+  --gold-dim:  rgba(192, 144, 56, 0.45);
+  --text:      #E5D0B5;
+  --text-2:    #9A8060;
+  --text-3:    #5C4A35;
+  --green:     #4A7A3A;
+  --green-dim: rgba(74, 122, 58, 0.2);
+  --copper:    #8A5030;
+  --copper-dim: rgba(138, 80, 48, 0.2);
+  --ochre:     #9A7830;
+  --ochre-dim: rgba(154, 120, 48, 0.2);
+  --slate:     #3A5A8A;
+  --slate-dim: rgba(58, 90, 138, 0.2);
+  --crimson:   #8A3A3A;
+  --crimson-dim: rgba(138, 58, 58, 0.2);
+  --success:   #3A7A4A;
+  --error:     #8A3A3A;
+  --warning:   #8A7030;
+  --background: var(--ink);
+  --foreground: var(--text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-cormorant);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-dm-sans, 'DM Sans', system-ui, sans-serif);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Display headings */
+.font-display {
+  font-family: var(--font-cormorant, 'Cormorant Garamond', Georgia, serif);
+}
+
+/* Mono for addresses */
+.font-mono {
+  font-family: var(--font-jetbrains, 'JetBrains Mono', 'Courier New', monospace);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink-5);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dim);
+}
+
+/* Selection */
+::selection {
+  background: var(--gold-dim);
+  color: var(--text);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Card base */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.card:hover {
+  border-color: var(--divider-strong);
+  background: var(--ink-3);
+}
+
+/* Input base */
+.input-base {
+  background: var(--ink-3);
+  border: 1px solid var(--divider-strong);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 10px 14px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.input-base:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--ink-4);
+}
+.input-base::placeholder {
+  color: var(--text-3);
+}
+.input-base option {
+  background: var(--ink-3);
+  color: var(--text);
+}
+
+/* Button base */
+.btn-primary {
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--gold-bright);
+}
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--ink-3);
+  color: var(--text);
+  border: 1px solid var(--divider-strong);
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--gold-dim);
+  background: var(--ink-4);
+}
+.btn-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-gold   { background: rgba(192,144,56,0.15); color: var(--gold-bright); border: 1px solid var(--gold-dim); }
+.badge-green  { background: var(--green-dim); color: #7DC86A; border: 1px solid rgba(74,122,58,0.4); }
+.badge-red    { background: var(--crimson-dim); color: #C87A7A; border: 1px solid rgba(138,58,58,0.4); }
+.badge-gray   { background: rgba(90,74,53,0.3); color: var(--text-3); border: 1px solid rgba(90,74,53,0.5); }
+.badge-blue   { background: var(--slate-dim); color: #7AA8E8; border: 1px solid rgba(58,90,138,0.4); }
+
+/* Role colors */
+.role-producer  { color: #7DC86A; }
+.role-factory   { color: #C89070; }
+.role-retailer  { color: var(--gold-bright); }
+.role-consumer  { color: #7AA8E8; }
+.role-authority { color: #C87A7A; }
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: var(--divider);
+  border: none;
+  margin: 0;
+}
+
+/* Glow effect on focus states */
+.glow-gold {
+  box-shadow: 0 0 0 1px var(--gold-dim), 0 0 16px rgba(192,144,56,0.08);
+}
+
+/* Wallet adapter override */
+.wallet-adapter-button {
+  background: var(--ink-4) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--divider-strong) !important;
+  border-radius: 6px !important;
+  font-family: var(--font-dm-sans, inherit) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  height: 36px !important;
+  padding: 0 14px !important;
+  transition: border-color 0.2s !important;
+}
+.wallet-adapter-button:hover:not(:disabled) {
+  background: var(--ink-5) !important;
+  border-color: var(--gold-dim) !important;
+}
+.wallet-adapter-button-trigger {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  border-color: transparent !important;
+}
+.wallet-adapter-button-trigger:hover {
+  background: var(--gold-bright) !important;
+}
+.wallet-adapter-modal-wrapper {
+  background: var(--ink-2) !important;
+  border: 1px solid var(--divider-strong) !important;
+}
+.wallet-adapter-modal-title {
+  color: var(--text) !important;
+}
+.wallet-adapter-modal-list li {
+  background: var(--ink-3) !important;
+}
+.wallet-adapter-modal-list li:hover {
+  background: var(--ink-4) !important;
+}
